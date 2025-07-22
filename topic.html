@@ -1,0 +1,513 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title id="pageTitle">Help Topic - TheSupport</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: white;
+            min-height: 100vh;
+            color: #2c2f33;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            min-height: 100vh;
+        }
+
+        .header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 40px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+        }
+
+        .logo {
+            font-size: 24px;
+            font-weight: 700;
+            color: white;
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .nav-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 500;
+            padding: 8px 16px;
+            border-radius: 6px;
+            transition: background-color 0.2s;
+        }
+
+        .nav-link:hover {
+            background: rgba(255, 255, 255, 0.1);
+        }
+
+        .submit-request-btn {
+            background: #2c2f33;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 6px;
+            font-weight: 500;
+            cursor: pointer;
+            transition: background-color 0.2s;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .submit-request-btn:hover {
+            background: #36393f;
+        }
+
+        .main-content {
+            padding: 60px 40px;
+        }
+
+        .topic-title {
+            font-size: 36px;
+            font-weight: 900;
+            color: #2c2f33;
+            margin-bottom: 30px;
+            text-align: center;
+        }
+
+        .topic-content {
+            font-size: 16px;
+            line-height: 1.7;
+            color: #4a4a4a;
+            margin-bottom: 40px;
+        }
+
+        .topic-content p {
+            margin-bottom: 20px;
+        }
+
+        .topic-content h3 {
+            font-size: 20px;
+            font-weight: 700;
+            color: #2c2f33;
+            margin: 30px 0 15px 0;
+        }
+
+        .topic-content ul {
+            margin: 15px 0;
+            padding-left: 20px;
+        }
+
+        .topic-content li {
+            margin-bottom: 8px;
+        }
+
+        .support-button {
+            text-align: center;
+            margin-top: 50px;
+        }
+
+        .support-btn {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            border: none;
+            padding: 15px 30px;
+            border-radius: 25px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            text-decoration: none;
+            display: inline-block;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 8px 25px rgba(102, 126, 234, 0.3);
+        }
+
+        .support-btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 12px 35px rgba(102, 126, 234, 0.4);
+        }
+
+        @media (max-width: 768px) {
+            .main-content {
+                padding: 40px 20px;
+            }
+
+            .topic-title {
+                font-size: 28px;
+            }
+
+            .header {
+                padding: 15px 20px;
+                flex-direction: column;
+                gap: 15px;
+            }
+
+            .nav-links {
+                flex-wrap: wrap;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <div class="logo-container">
+                <a href="/" class="logo">TheSupport</a>
+            </div>
+            <nav class="nav-links">
+                <a href="topics.html" class="nav-link">Help Topics</a>
+                <a href="legal.html" class="nav-link">Legal</a>
+                <a href="support.html" class="submit-request-btn">Submit Request</a>
+            </nav>
+        </header>
+
+        <main class="main-content">
+            <h1 class="topic-title" id="topicTitle">Help Topic</h1>
+            <div class="topic-content" id="topicContent">
+                <p>Loading content...</p>
+            </div>
+            
+            <div class="support-button">
+                <a href="support.html" class="support-btn">Contact Support</a>
+            </div>
+        </main>
+    </div>
+
+    <script>
+        const topicData = {
+            'where-is-my-order': {
+                title: 'Where is my order',
+                content: `
+                    <p>We understand that waiting for your order can be exciting, and we want to keep you informed every step of the way. Here's everything you need to know about tracking your order and understanding its status.</p>
+                    
+                    <h3>How to Track Your Order</h3>
+                    <p>Once your order is processed and shipped, you'll receive a confirmation email with a tracking number. You can use this tracking number to monitor your package's journey from our warehouse to your doorstep.</p>
+                    
+                    <ul>
+                        <li>Check your email for the shipping confirmation message</li>
+                        <li>Look for the tracking number in the email</li>
+                        <li>Visit the carrier's website (UPS, FedEx, USPS, etc.) to track your package</li>
+                        <li>You can also track multiple packages using our order tracking portal</li>
+                    </ul>
+                    
+                    <h3>Order Status Meanings</h3>
+                    <p>Understanding what each status means can help you know exactly where your order stands:</p>
+                    
+                    <ul>
+                        <li><strong>Processing:</strong> We're preparing your order for shipment</li>
+                        <li><strong>Shipped:</strong> Your order is on its way to you</li>
+                        <li><strong>Out for Delivery:</strong> Your package is with the delivery driver</li>
+                        <li><strong>Delivered:</strong> Your package has been successfully delivered</li>
+                    </ul>
+                    
+                    <h3>Expected Delivery Times</h3>
+                    <p>Standard shipping typically takes 3-7 business days, while expedited shipping takes 1-3 business days. International orders may take 7-21 business days depending on your location and customs processing.</p>
+                    
+                    <p>If your order seems delayed or you haven't received tracking information within 24 hours of your order confirmation, please don't hesitate to contact our support team. We're here to help resolve any shipping concerns quickly and efficiently.</p>
+                `
+            },
+            'return-exchange': {
+                title: 'Return or Exchange an Item',
+                content: `
+                    <p>We want you to be completely satisfied with your purchase. If for any reason you're not happy with your order, we offer a hassle-free return and exchange policy to make things right.</p>
+                    
+                    <h3>Return Policy Overview</h3>
+                    <p>You can return most items within 30 days of delivery for a full refund. Items must be in their original condition, unused, and in original packaging. Some restrictions may apply to certain product categories.</p>
+                    
+                    <h3>How to Initiate a Return</h3>
+                    <ul>
+                        <li>Contact our customer service team or use our online return portal</li>
+                        <li>Provide your order number and reason for return</li>
+                        <li>Print the prepaid return shipping label we'll send you</li>
+                        <li>Package the item securely with all original materials</li>
+                        <li>Drop off the package at any authorized shipping location</li>
+                    </ul>
+                    
+                    <h3>Exchange Process</h3>
+                    <p>If you need a different size, color, or model, exchanges are often faster than returns. We'll ship your replacement item as soon as we receive your return, ensuring minimal downtime.</p>
+                    
+                    <h3>What Cannot Be Returned</h3>
+                    <ul>
+                        <li>Personalized or customized items</li>
+                        <li>Items damaged by misuse or normal wear</li>
+                        <li>Digital products or software</li>
+                        <li>Items returned after 30 days</li>
+                    </ul>
+                    
+                    <h3>Refund Timeline</h3>
+                    <p>Once we receive your returned item, we'll inspect it and process your refund within 3-5 business days. The refund will be credited back to your original payment method. Please allow additional time for your bank or credit card company to process the refund.</p>
+                    
+                    <p>For the fastest resolution, please ensure all return requirements are met and contact us if you have any questions about the return process.</p>
+                `
+            },
+            'request-refund': {
+                title: 'Request a Refund',
+                content: `
+                    <p>We stand behind the quality of our products and services. If you're not satisfied with your purchase or if there's an issue with your order, we're committed to making it right through our comprehensive refund policy.</p>
+                    
+                    <h3>Eligible Refund Scenarios</h3>
+                    <p>You may be eligible for a refund in the following situations:</p>
+                    
+                    <ul>
+                        <li>You received a defective or damaged product</li>
+                        <li>The item doesn't match the description or your expectations</li>
+                        <li>You're returning an item within our 30-day return window</li>
+                        <li>An order was cancelled or never shipped</li>
+                        <li>You were charged incorrectly or multiple times</li>
+                    </ul>
+                    
+                    <h3>How to Request a Refund</h3>
+                    <p>Requesting a refund is straightforward and can be done through several channels:</p>
+                    
+                    <ul>
+                        <li>Use our online refund request form</li>
+                        <li>Contact our customer service team directly</li>
+                        <li>Email us with your order details and refund reason</li>
+                        <li>Call our support hotline during business hours</li>
+                    </ul>
+                    
+                    <h3>Information You'll Need</h3>
+                    <p>To process your refund quickly, please have the following information ready:</p>
+                    
+                    <ul>
+                        <li>Order number or receipt</li>
+                        <li>Email address used for the purchase</li>
+                        <li>Reason for the refund request</li>
+                        <li>Photos of damaged items (if applicable)</li>
+                    </ul>
+                    
+                    <h3>Refund Processing Timeline</h3>
+                    <p>Most refund requests are reviewed and approved within 24-48 hours. Once approved:</p>
+                    
+                    <ul>
+                        <li>Credit card refunds: 3-5 business days</li>
+                        <li>PayPal refunds: 1-2 business days</li>
+                        <li>Bank transfers: 5-7 business days</li>
+                        <li>Original payment method will be credited</li>
+                    </ul>
+                    
+                    <p>We'll send you email confirmation once your refund has been processed. If you don't see the refund in your account after the expected timeframe, please contact your financial institution as processing times may vary.</p>
+                `
+            },
+            'report-problem': {
+                title: 'Report a Problem with My Order',
+                content: `
+                    <p>We strive for perfection with every order, but sometimes issues can occur. Whether it's a shipping problem, product defect, or service concern, we're here to resolve any issues quickly and to your complete satisfaction.</p>
+                    
+                    <h3>Common Order Problems</h3>
+                    <p>Here are some issues you might encounter and how we can help:</p>
+                    
+                    <ul>
+                        <li><strong>Damaged Items:</strong> Products arrived broken or damaged during shipping</li>
+                        <li><strong>Wrong Item:</strong> You received a different product than what you ordered</li>
+                        <li><strong>Missing Items:</strong> Part of your order is missing from the package</li>
+                        <li><strong>Quality Issues:</strong> The product doesn't meet expected quality standards</li>
+                        <li><strong>Shipping Delays:</strong> Your order is significantly delayed beyond estimated delivery</li>
+                    </ul>
+                    
+                    <h3>How to Report a Problem</h3>
+                    <p>When reporting an issue, providing detailed information helps us resolve it faster:</p>
+                    
+                    <ul>
+                        <li>Take clear photos of any damaged or incorrect items</li>
+                        <li>Keep all original packaging materials</li>
+                        <li>Note the specific problem and when you discovered it</li>
+                        <li>Include your order number and purchase date</li>
+                        <li>Describe what resolution you're seeking</li>
+                    </ul>
+                    
+                    <h3>Our Resolution Process</h3>
+                    <p>Once you report a problem, here's what happens next:</p>
+                    
+                    <ul>
+                        <li>We'll acknowledge your report within 2 hours</li>
+                        <li>Our team will review your case and any provided evidence</li>
+                        <li>We'll propose a solution (replacement, refund, or store credit)</li>
+                        <li>If needed, we'll arrange for return shipping at no cost to you</li>
+                        <li>We'll follow up to ensure you're satisfied with the resolution</li>
+                    </ul>
+                    
+                    <h3>Prevention and Quality Assurance</h3>
+                    <p>Your feedback helps us improve our processes and prevent future issues. We use reported problems to:</p>
+                    
+                    <ul>
+                        <li>Improve our packaging and shipping procedures</li>
+                        <li>Work with suppliers to enhance product quality</li>
+                        <li>Update our quality control processes</li>
+                        <li>Train our team on better customer service</li>
+                    </ul>
+                    
+                    <p>Remember, no problem is too small to report. We appreciate your patience and the opportunity to make things right. Your satisfaction is our top priority, and we won't rest until you're completely happy with your purchase experience.</p>
+                `
+            },
+            'warranty-repairs': {
+                title: 'Product Warranty & Repairs',
+                content: `
+                    <p>We stand behind the quality and durability of our products. Our comprehensive warranty program ensures that you're protected against manufacturing defects and can get repairs or replacements when needed.</p>
+                    
+                    <h3>Warranty Coverage</h3>
+                    <p>Our standard warranty covers manufacturing defects and material failures under normal use conditions:</p>
+                    
+                    <ul>
+                        <li><strong>Electronics:</strong> 1-3 years depending on the product category</li>
+                        <li><strong>Appliances:</strong> 1-2 years for parts and labor</li>
+                        <li><strong>Furniture:</strong> 1 year for structural defects</li>
+                        <li><strong>Clothing:</strong> 6 months for material and construction defects</li>
+                        <li><strong>Accessories:</strong> 90 days to 1 year varying by item type</li>
+                    </ul>
+                    
+                    <h3>What's Covered</h3>
+                    <p>Your warranty includes protection against:</p>
+                    
+                    <ul>
+                        <li>Manufacturing defects present at time of purchase</li>
+                        <li>Material failures under normal use conditions</li>
+                        <li>Electrical or mechanical component failures</li>
+                        <li>Premature wear beyond reasonable expectations</li>
+                    </ul>
+                    
+                    <h3>What's Not Covered</h3>
+                    <p>Please note that warranties do not cover:</p>
+                    
+                    <ul>
+                        <li>Damage from misuse, abuse, or accidents</li>
+                        <li>Normal wear and tear from regular use</li>
+                        <li>Damage from unauthorized repairs or modifications</li>
+                        <li>Cosmetic damage that doesn't affect functionality</li>
+                        <li>Damage from exposure to extreme conditions</li>
+                    </ul>
+                    
+                    <h3>How to Claim Warranty Service</h3>
+                    <p>Filing a warranty claim is simple and straightforward:</p>
+                    
+                    <ul>
+                        <li>Contact our warranty department with your issue</li>
+                        <li>Provide proof of purchase and product details</li>
+                        <li>Describe the problem and when it first occurred</li>
+                        <li>We'll guide you through diagnostics if needed</li>
+                        <li>If covered, we'll arrange repair or replacement</li>
+                    </ul>
+                    
+                    <h3>Repair Services</h3>
+                    <p>For items that can be repaired, we offer:</p>
+                    
+                    <ul>
+                        <li>Free shipping to our authorized repair centers</li>
+                        <li>Expert diagnosis and repair by certified technicians</li>
+                        <li>Use of genuine parts and components</li>
+                        <li>Quality testing before return shipment</li>
+                        <li>Extended warranty on repaired components</li>
+                    </ul>
+                    
+                    <h3>Warranty Registration</h3>
+                    <p>While not always required, registering your products can expedite warranty service and may provide additional benefits like extended coverage, recall notifications, and exclusive offers. Registration can be completed online or through our mobile app.</p>
+                    
+                    <p>Keep your purchase receipt and warranty information in a safe place. Digital copies are acceptable and can be uploaded to your account for easy access during warranty claims.</p>
+                `
+            },
+            'update-delivery': {
+                title: 'Update Delivery Information',
+                content: `
+                    <p>We understand that plans change, and you may need to modify your delivery details after placing an order. We offer several options to update your delivery information to ensure your package reaches you safely and conveniently.</p>
+                    
+                    <h3>What You Can Update</h3>
+                    <p>Depending on your order status, you may be able to modify:</p>
+                    
+                    <ul>
+                        <li>Shipping address (if order hasn't shipped yet)</li>
+                        <li>Delivery time preferences</li>
+                        <li>Special delivery instructions</li>
+                        <li>Package pickup location</li>
+                        <li>Delivery authorization for someone else</li>
+                    </ul>
+                    
+                    <h3>When Changes Are Possible</h3>
+                    <p>The ability to make changes depends on your order's current status:</p>
+                    
+                    <ul>
+                        <li><strong>Order Processing:</strong> Full changes possible including address</li>
+                        <li><strong>Preparing to Ship:</strong> Limited changes, contact us immediately</li>
+                        <li><strong>Shipped:</strong> Work with carrier for delivery modifications</li>
+                        <li><strong>Out for Delivery:</strong> Same-day changes through carrier only</li>
+                    </ul>
+                    
+                    <h3>How to Update Delivery Information</h3>
+                    <p>Several convenient ways to modify your delivery details:</p>
+                    
+                    <ul>
+                        <li>Log into your account and edit the order (if still processing)</li>
+                        <li>Use our order modification form with your order number</li>
+                        <li>Contact customer service via phone, email, or chat</li>
+                        <li>Use the carrier's tracking system for shipped orders</li>
+                    </ul>
+                    
+                    <h3>Delivery Instructions</h3>
+                    <p>You can provide specific instructions to help ensure successful delivery:</p>
+                    
+                    <ul>
+                        <li>Gate codes or building access instructions</li>
+                        <li>Preferred delivery location (front door, side entrance, etc.)</li>
+                        <li>Package placement preferences for security</li>
+                        <li>Best times for delivery attempts</li>
+                        <li>Contact information for delivery coordination</li>
+                    </ul>
+                    
+                    <h3>Alternative Delivery Options</h3>
+                    <p>If you can't be home to receive your package, consider these options:</p>
+                    
+                    <ul>
+                        <li>Authorize delivery to a trusted neighbor</li>
+                        <li>Request package hold at a carrier facility</li>
+                        <li>Use a package locker or pickup point</li>
+                        <li>Schedule delivery for a specific date/time</li>
+                        <li>Redirect to your workplace or alternative address</li>
+                    </ul>
+                    
+                    <h3>International Delivery Updates</h3>
+                    <p>For international orders, additional considerations apply:</p>
+                    
+                    <ul>
+                        <li>Address changes may not be possible once shipped</li>
+                        <li>Customs documentation may need updating</li>
+                        <li>Local delivery partner policies may apply</li>
+                        <li>Additional fees may apply for some modifications</li>
+                    </ul>
+                    
+                    <p>For the best results, contact us as soon as possible when you need to make delivery changes. Our team is here to help ensure your package reaches you successfully, even when your plans change.</p>
+                `
+            }
+        };
+
+        function loadTopicContent() {
+            const urlParams = new URLSearchParams(window.location.search);
+            const topic = urlParams.get('topic');
+            
+            if (topic && topicData[topic]) {
+                document.getElementById('topicTitle').textContent = topicData[topic].title;
+                document.getElementById('topicContent').innerHTML = topicData[topic].content;
+                document.getElementById('pageTitle').textContent = topicData[topic].title + ' - TheSupport';
+            } else {
+                document.getElementById('topicTitle').textContent = 'Topic Not Found';
+                document.getElementById('topicContent').innerHTML = '<p>Sorry, the requested help topic could not be found. Please check the URL or browse our available topics.</p>';
+            }
+        }
+
+        // Load content when page loads
+        window.addEventListener('load', loadTopicContent);
+    </script>
+</body>
+</html>
